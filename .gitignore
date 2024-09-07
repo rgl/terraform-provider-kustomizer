@@ -1,0 +1,8 @@
+.terraform/
+bin/
+dist/
+tmp/
+.terraform.lock.hcl
+terraform.tfstate*
+tfplan
+terraform-provider-kustomizer*
