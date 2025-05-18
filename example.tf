@@ -1,24 +1,24 @@
 # see https://github.com/hashicorp/terraform
 terraform {
-  required_version = "1.9.5"
+  required_version = "1.12.0"
   required_providers {
     # see https://registry.terraform.io/providers/hashicorp/helm
     # see https://github.com/hashicorp/terraform-provider-helm
     helm = {
       source  = "hashicorp/helm"
-      version = "2.15.0"
+      version = "2.17.0"
     }
     # see https://registry.terraform.io/providers/rgl/kustomizer
     # see https://github.com/rgl/terraform-provider-kustomizer
     kustomizer = {
       source  = "rgl/kustomizer"
-      version = "0.0.1"
+      version = "0.0.2"
     }
   }
 }
 
 locals {
-  kubernetes_version = "1.31.0"
+  kubernetes_version = "1.32.5"
   # NB zot chat is an example of a chart that does not allow the user to use a
   #    non-default namespace, hence, we need to use the kustomizer_manifest
   #    terraform resource.
@@ -33,7 +33,7 @@ locals {
 
 # set the configuration.
 # NB the default values are described at:
-#       https://github.com/project-zot/helm-charts/tree/zot-0.1.60/charts/zot/values.yaml
+#       https://github.com/project-zot/helm-charts/tree/zot-0.1.70/charts/zot/values.yaml
 #    NB make sure you are seeing the same version of the chart that you are installing.
 # see https://zotregistry.dev/v2.1.0/install-guides/install-guide-k8s/
 # see https://registry.terraform.io/providers/hashicorp/helm/latest/docs/data-sources/template
@@ -44,7 +44,7 @@ data "helm_template" "zot" {
   chart      = "zot"
   # see https://artifacthub.io/packages/helm/zot/zot
   # renovate: datasource=helm depName=zot registryUrl=https://zotregistry.dev/helm-charts
-  version      = "0.1.60" # app version 2.1.1.
+  version      = "0.1.70" # app version 2.1.2.
   kube_version = local.kubernetes_version
   api_versions = []
   values = [yamlencode({

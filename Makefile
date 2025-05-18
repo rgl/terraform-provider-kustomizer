@@ -6,12 +6,12 @@ HOSTNAME=registry.terraform.io
 NAMESPACE=rgl
 NAME=kustomizer
 BINARY=terraform-provider-${NAME}
-VERSION?=0.0.1
+VERSION?=0.0.2
 OS_ARCH=$(shell go env GOOS)_$(shell go env GOARCH)
 
 # see https://github.com/goreleaser/goreleaser
 # renovate: datasource=github-releases depName=goreleaser/goreleaser extractVersion=^v?(?<version>2\..+)
-GORELEASER_VERSION := 2.2.0
+GORELEASER_VERSION := 2.9.0
 
 default: install
 
