@@ -24,9 +24,27 @@ Build the development version of this provider and install it:
 make
 ```
 
+Configure terraform to use the local provider by editing your `~/.terraformrc` as, e.g.:
+
+```hcl
+# see https://developer.hashicorp.com/terraform/cli/config/config-file#development-overrides-for-provider-developers
+# see https://developer.hashicorp.com/terraform/cli/config/config-file
+provider_installation {
+  dev_overrides {
+    # ...
+    "rgl/kustomizer" = "/home/vagrant/Projects/terraform-provider-kustomizer"
+  }
+  direct {
+  }
+}
+```
+
 Create the infrastructure:
 
 ```bash
+export TF_LOG=DEBUG
+export TF_LOG_PATH=terraform.log
+rm -f *.log
 terraform init
 terraform plan -out=tfplan
 terraform apply tfplan

@@ -6,3 +6,4 @@ tmp/
 terraform.tfstate*
 tfplan
 terraform-provider-kustomizer*
+*.log
