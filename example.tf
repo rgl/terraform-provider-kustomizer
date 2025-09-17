@@ -1,18 +1,18 @@
 # see https://github.com/hashicorp/terraform
 terraform {
-  required_version = "1.12.0"
+  required_version = "1.13.2"
   required_providers {
     # see https://registry.terraform.io/providers/hashicorp/helm
     # see https://github.com/hashicorp/terraform-provider-helm
     helm = {
       source  = "hashicorp/helm"
-      version = "2.17.0"
+      version = "3.0.2"
     }
     # see https://registry.terraform.io/providers/rgl/kustomizer
     # see https://github.com/rgl/terraform-provider-kustomizer
     kustomizer = {
       source  = "rgl/kustomizer"
-      version = "0.0.2"
+      version = "0.0.3"
     }
   }
 }
